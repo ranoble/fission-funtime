@@ -1,0 +1,1 @@
+FISSION_NAMESPACE="fission" helm upgrade --debug --namespace $FISSION_NAMESPACE  fission  fission   -f `pwd`/resources/values.yaml     https://github.com/fission/fission/releases/download/1.11.2/fission-all-1.11.2.tgz
