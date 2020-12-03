@@ -1,6 +1,7 @@
 # fission-funtime
 
 This is a sample project to get fission and kafka up and running on a local mac using docker desktop.
+See: https://blog.fission.io/posts/event-driven-scaling-fission-function-using-keda/
 
 Just install Kube + Helm
 
