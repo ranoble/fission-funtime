@@ -38,9 +38,9 @@ install-producer:
 	cd go-producer && make install
 
 .PHONY : install-consumer
-## install-producer			: Build the test go producer
-install-producer:
-	cd go-producer && make install
+## install-consumer			: Build the test go producer
+install-consumer:
+	cd kafka-function-js && make install
 
 .PHONY : produce
 ## produce				: Provided the producer is registered - lets make some messages
