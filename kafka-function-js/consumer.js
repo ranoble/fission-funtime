@@ -6,6 +6,7 @@ module.exports = async function (context) {
     let response_headers = {}
     if (key != null) {
         response_headers['keda-message-key'] = key
+		console.log(response_headers)
     }
     if (tombstone != null) {
         response_headers['keda-message-tombstone'] = 'true'
@@ -13,6 +14,7 @@ module.exports = async function (context) {
             status: 200,
             headers: response_headers,
             body: ""
+			console.log(response_headers)
         };
     }
 
@@ -20,5 +22,6 @@ module.exports = async function (context) {
         status: 200,
         headers: response_headers,
         body: "Consumer Response "+ JSON.stringify(body) + " Key " + key
+		console.log(body)
     };
 }

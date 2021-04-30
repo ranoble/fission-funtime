@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cat << EOF | kubectl create -n my-kafka-project -f -
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: request-topic
@@ -13,7 +13,7 @@ spec:
 EOF
 
 cat << EOF | kubectl create -n my-kafka-project -f -
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: response-topic
@@ -25,7 +25,7 @@ spec:
 EOF
 
 cat << EOF | kubectl create -n my-kafka-project -f -
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: error-topic

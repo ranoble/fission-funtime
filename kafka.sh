@@ -1,15 +1,15 @@
 #!/bin/bash
 
-wget -c https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.20.0/strimzi-0.20.0.tar.gz -O - | tar -xz
-cd strimzi-0.20.0
+wget -c https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.22.1/strimzi-0.22.1.tar.gz -O - | tar -xz
+cd strimzi-0.22.1
 sed -i '' 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml 
 cp -f ../resources/060-Deployment-strimzi-cluster-operator.yaml ./install/cluster-operator/060-Deployment-strimzi-cluster-operator.yaml
 kubectl create ns kafka
 kubectl create ns my-kafka-project
-kubectl apply -f install/cluster-operator/ -n kafka
-kubectl apply -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
-kubectl apply -f install/cluster-operator/032-RoleBinding-strimzi-cluster-operator-topic-operator-delegation.yaml -n my-kafka-project
-kubectl apply -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+kubectl create -f install/cluster-operator/ -n kafka
+kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+kubectl create -f install/cluster-operator/032-RoleBinding-strimzi-cluster-operator-topic-operator-delegation.yaml -n my-kafka-project
+kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
 cd ..
 
 cat << EOF | kubectl create -n my-kafka-project -f -
@@ -40,7 +40,7 @@ spec:
       volumes:
       - id: 0
         type: persistent-claim
-        size: 100Gi
+        size: 5Gi
         deleteClaim: false
     config:
       offsets.topic.replication.factor: 1
@@ -50,7 +50,7 @@ spec:
     replicas: 1
     storage:
       type: persistent-claim
-      size: 100Gi
+      size: 5Gi
       deleteClaim: false
   entityOperator:
     topicOperator: {}

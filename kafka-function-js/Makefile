@@ -5,7 +5,7 @@ help : Makefile
 .PHONY : live
 ## env					: Deploy a js environment
 env:
-	fission env create --name nodeenv --image fission/node-env
+	fission env create --name nodeenv --version 3 --poolsize 1 --image fission/node-env
 
 .PHONY : create
 ## create					: Deploy the js function

@@ -5,7 +5,7 @@ help : Makefile
 .PHONY : live
 ## env					: Deploy a go environment
 env:
-	fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
+	fission env create --name go --version 3 --poolsize 1 --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
 
 .PHONY : create
 ## create					: Deploy the go function
