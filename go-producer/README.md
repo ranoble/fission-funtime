@@ -1,6 +1,6 @@
 
 
-kubectl -nfission logs storagesvc-5c6cf54c4d-54wdx
+kubectl -n fission logs storagesvc-5c6cf54c4d-54wdx
 
 2020-12-03T09:00:05.367Z	DEBUG	storage_service	storagesvc/storagesvc.go:100	handling upload	{"filename": "/packages/producer-d98bc4de-b167-4b06-b79a-5ac09036be72-dl0q2o-h1alhs.zip"}
 2020-12-03T09:00:05.384Z	DEBUG	stow_client	storagesvc/stowClient.go:125	successfully wrote file on storage	{"file": "0b80d195-263b-4cb1-ad0d-bb381ad86938"}

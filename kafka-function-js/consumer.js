@@ -14,14 +14,13 @@ module.exports = async function (context) {
             status: 200,
             headers: response_headers,
             body: ""
-			console.log(response_headers)
         };
+
     }
 
     return {
         status: 200,
         headers: response_headers,
         body: "Consumer Response "+ JSON.stringify(body) + " Key " + key
-		console.log(body)
     };
 }
