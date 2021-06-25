@@ -7,8 +7,8 @@ help : Makefile
 live:
 	echo "Installing Fission"
 	sh install.sh
-	echo "Installing KEDA"
-	sh keda.sh
+#	echo "Installing KEDA"
+#	sh keda.sh
 	echo "Installing Kafka through Strimzi"
 	sh kafka.sh
 	echo "Building test topcs"
